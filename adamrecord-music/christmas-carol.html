@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Christmas Carol — Adam Record</title>
+  <link rel="stylesheet" href="https://use.typekit.net/hpg2amt.css">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ============================================================
+       CHRISTMAS CAROL PAGE — Custom styles
+       ============================================================ */
+
+    .cc-page {
+      min-height: 100vh;
+      background: linear-gradient(160deg, #1a1a2e 0%, #2c1810 50%, #8a6030 100%);
+      background-size: 400% 400%;
+      animation: aurora 24s ease infinite;
+      color: #f5f0e8;
+    }
+
+    @keyframes aurora {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .cc-page .logo-name,
+    .cc-page .logo-sub,
+    .cc-page nav a,
+    .cc-page .sidebar-link {
+      color: rgba(245, 240, 232, 0.7);
+    }
+
+    .cc-page nav a:hover,
+    .cc-page nav a.active {
+      color: #f5f0e8;
+    }
+
+    .cc-page nav a.active::after {
+      background: #f5f0e8;
+    }
+
+    .cc-page .sidebar-line {
+      background: rgba(245, 240, 232, 0.3);
+    }
+
+    .cc-main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 140px 80px 80px;
+      text-align: center;
+    }
+
+    .cc-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 232, 0.5);
+      margin-bottom: 20px;
+    }
+
+    .cc-title {
+      font-size: clamp(36px, 7vw, 88px);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+      color: #f5f0e8;
+    }
+
+    .cc-subtitle {
+      font-size: clamp(14px, 2vw, 20px);
+      font-style: italic;
+      color: rgba(245, 240, 232, 0.6);
+      margin-bottom: 60px;
+      letter-spacing: 0.04em;
+    }
+
+    .cc-divider {
+      width: 60px;
+      height: 1px;
+      background: rgba(245, 240, 232, 0.3);
+      margin: 0 auto 60px;
+    }
+
+    .cc-placeholder {
+      max-width: 560px;
+      font-size: 16px;
+      line-height: 1.8;
+      color: rgba(245, 240, 232, 0.55);
+      font-style: italic;
+    }
+
+    .cc-back {
+      position: absolute;
+      top: 120px;
+      left: 80px;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: rgba(245, 240, 232, 0.5);
+      transition: color 0.2s;
+    }
+
+    .cc-back:hover {
+      color: #f5f0e8;
+    }
+
+    @media (max-width: 768px) {
+      .cc-main {
+        padding: 120px 32px 60px;
+      }
+      .cc-back {
+        left: 32px;
+      }
+    }
+  </style>
+</head>
+<body class="cc-page">
+
+  <!-- SIDEBAR SOCIAL -->
+  <div class="sidebar">
+    <a href="https://www.instagram.com/adamrecordmusic" target="_blank" class="sidebar-link">Instagram</a>
+    <div class="sidebar-line"></div>
+  </div>
+
+  <!-- HEADER / NAV -->
+  <header>
+    <div class="logo">
+      <a href="index.html">
+        <span class="logo-name">ADAM RECORD</span>
+        <span class="logo-sub">Composer</span>
+      </a>
+    </div>
+    <nav>
+      <a href="about.html">About</a>
+      <a href="music.html">Music</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="cc-main">
+    <a href="about.html" class="cc-back">← Back</a>
+
+    <div class="cc-eyebrow">A New Musical</div>
+    <h1 class="cc-title">A Christmas Carol</h1>
+    <div class="cc-subtitle">Music &amp; Lyrics by Adam Record</div>
+    <div class="cc-divider"></div>
+    <p class="cc-placeholder">Content coming soon.</p>
+  </main>
+
+</body>
+</html>
