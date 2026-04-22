@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adam Record</title>
+  <link rel="stylesheet" href="https://use.typekit.net/hpg2amt.css">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── HERO MOSAIC ── */
+    .home-main {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mosaic {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 0;
+    }
+
+    .mosaic-panel {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .mosaic-panel img {
+      width: 115%;
+      height: 115%;
+      object-fit: cover;
+      display: block;
+      transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transform: translate(-5%, -5%);
+    }
+
+    /* Each panel pans in a slightly different direction on hover */
+    .mosaic-panel:nth-child(1):hover img { transform: translate(-8%, -8%) scale(1.02); }
+    .mosaic-panel:nth-child(2):hover img { transform: translate(-2%, -8%) scale(1.02); }
+    .mosaic-panel:nth-child(3):hover img { transform: translate(-8%, -2%) scale(1.02); }
+    .mosaic-panel:nth-child(4):hover img { transform: translate(-2%, -2%) scale(1.02); }
+
+    /* subtle idle drift animation */
+    @keyframes driftA { 0%,100% { transform: translate(-5%,-5%); } 50% { transform: translate(-8%,-7%); } }
+    @keyframes driftB { 0%,100% { transform: translate(-5%,-5%); } 50% { transform: translate(-2%,-7%); } }
+    @keyframes driftC { 0%,100% { transform: translate(-5%,-5%); } 50% { transform: translate(-8%,-2%); } }
+    @keyframes driftD { 0%,100% { transform: translate(-5%,-5%); } 50% { transform: translate(-2%,-2%); } }
+
+    .mosaic-panel:nth-child(1) img { animation: driftA 14s ease-in-out infinite; }
+    .mosaic-panel:nth-child(2) img { animation: driftB 17s ease-in-out infinite; }
+    .mosaic-panel:nth-child(3) img { animation: driftC 19s ease-in-out infinite; }
+    .mosaic-panel:nth-child(4) img { animation: driftD 15s ease-in-out infinite; }
+
+    /* Hero text overlay */
+    .hero-overlay {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      pointer-events: none;
+    }
+
+    .hero-name {
+      font-family: "instrument-serif", sans-serif;
+      font-size: clamp(52px, 9vw, 120px);
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      color: #111;
+      mix-blend-mode: multiply;
+      margin-bottom: 16px;
+    }
+
+    .hero-sub {
+      font-family: "instrument-serif", sans-serif;
+      font-size: 15px;
+      font-style: italic;
+      color: #555;
+      margin-bottom: 36px;
+      mix-blend-mode: multiply;
+    }
+
+    .hero-link {
+      pointer-events: all;
+      font-family: "instrument-serif", sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #111;
+      border-bottom: 1px solid #111;
+      padding-bottom: 2px;
+      transition: opacity 0.2s;
+      mix-blend-mode: multiply;
+    }
+
+    .hero-link:hover { opacity: 0.4; }
+  </style>
+</head>
+<body>
+
+  <!-- SIDEBAR SOCIAL -->
+  <div class="sidebar">
+    <a href="https://www.instagram.com/adamrecordmusic" target="_blank" class="sidebar-link">Instagram</a>
+    <div class="sidebar-line"></div>
+  </div>
+
+  <!-- HEADER / NAV -->
+  <header>
+    <div class="logo">
+      <a href="index.html">
+        <span class="logo-name">ADAM RECORD</span>
+        <span class="logo-sub">Composer</span>
+      </a>
+    </div>
+    <nav>
+      <a href="about.html">About</a>
+      <a href="music.html">Music</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HOME HERO -->
+  <main class="home-main">
+
+    <!-- 4-panel image mosaic -->
+    <div class="mosaic">
+      <div class="mosaic-panel">
+        <img src="images/hero-ocean.png" alt="">
+      </div>
+      <div class="mosaic-panel">
+        <img src="images/hero-canoe.png" alt="">
+      </div>
+      <div class="mosaic-panel">
+        <img src="images/hero-mist.png" alt="">
+      </div>
+      <div class="mosaic-panel">
+        <img src="images/hero-winter.png" alt="">
+      </div>
+    </div>
+
+    <!-- Text floating over images -->
+    <div class="hero-overlay">
+      <h1 class="hero-name">ADAM RECORD</h1>
+      <p class="hero-sub">Piano · Strings · Synthesis · Field Recordings</p>
+      <a href="music.html" class="hero-link">Listen</a>
+    </div>
+
+  </main>
+
+</body>
+</html>

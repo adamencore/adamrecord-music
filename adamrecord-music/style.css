@@ -1,0 +1,462 @@
+/* ============================================================
+   ADAM RECORD — Music Website
+   Instrument Serif · Minimal · Black & White
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --black: #111111;
+  --white: #f8f7f4;
+  --grey:  #888888;
+  --light: #e8e6e1;
+  --font: "instrument-serif", sans-serif;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font);
+  font-weight: 400;
+  background: var(--white);
+  color: var(--black);
+  min-height: 100vh;
+  transition: background 0.8s ease;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ============================================================
+   SIDEBAR
+   ============================================================ */
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  z-index: 100;
+  padding-left: 18px;
+}
+
+.sidebar-link {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--grey);
+  transition: color 0.2s;
+}
+
+.sidebar-link:hover {
+  color: var(--black);
+}
+
+.sidebar-line {
+  width: 1px;
+  height: 60px;
+  background: var(--grey);
+  margin-top: 4px;
+}
+
+/* ============================================================
+   HEADER / NAV
+   ============================================================ */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 28px 48px 0 80px;
+  background: transparent;
+}
+
+.logo a {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.logo-name {
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+
+.logo-sub {
+  font-size: 11px;
+  font-style: italic;
+  color: var(--grey);
+  letter-spacing: 0.05em;
+}
+
+nav {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  padding-top: 4px;
+}
+
+nav a {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--grey);
+  transition: color 0.2s;
+  position: relative;
+  text-transform: uppercase;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--black);
+}
+
+nav a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--black);
+}
+
+/* ============================================================
+   HOME
+   ============================================================ */
+
+.home-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 100px 80px;
+}
+
+.home-hero {
+  text-align: center;
+}
+
+.hero-name {
+  font-size: clamp(48px, 8vw, 100px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+
+.hero-sub {
+  font-size: 16px;
+  color: var(--grey);
+  margin-bottom: 48px;
+  font-style: italic;
+}
+
+.hero-link {
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--black);
+  padding-bottom: 2px;
+  transition: opacity 0.2s;
+}
+
+.hero-link:hover {
+  opacity: 0.5;
+}
+
+/* ============================================================
+   MUSIC — ALBUM GRID
+   ============================================================ */
+
+.music-main {
+  padding: 120px 120px 80px 120px;
+}
+
+.page-title-center {
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  color: var(--grey);
+  margin-bottom: 60px;
+}
+
+.section-divider {
+  margin-top: 80px;
+}
+
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.album-card {
+  display: block;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.album-card:hover {
+  opacity: 0.75;
+}
+
+.album-thumb {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.album-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.album-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.album-title {
+  font-size: 15px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.album-meta {
+  font-size: 12px;
+  color: var(--grey);
+  font-style: italic;
+}
+
+/* ============================================================
+   ALBUM PAGE
+   ============================================================ */
+
+.album-page {
+  min-height: 100vh;
+}
+
+.album-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 120px 80px 80px;
+}
+
+.album-player-wrap {
+  width: 100%;
+  max-width: 660px;
+}
+
+.back-link {
+  margin-bottom: 32px;
+}
+
+.back-link a {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--grey);
+  transition: color 0.2s;
+}
+
+.back-link a:hover {
+  color: var(--black);
+}
+
+.album-player-title {
+  font-size: clamp(28px, 5vw, 52px);
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.album-player-meta {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--grey);
+  margin-bottom: 40px;
+}
+
+.spotify-embed iframe {
+  border-radius: 12px;
+}
+
+.embed-placeholder {
+  font-size: 14px;
+  color: var(--grey);
+  font-style: italic;
+  padding: 40px 0;
+}
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+
+.about-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 120px 80px 80px;
+}
+
+.about-content {
+  display: flex;
+  gap: 60px;
+  max-width: 800px;
+  align-items: flex-start;
+}
+
+.about-photo-placeholder {
+  width: 220px;
+  flex-shrink: 0;
+  aspect-ratio: 3/4;
+  background: var(--light);
+  /* Replace background with img tag */
+}
+
+.about-photo-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-text {
+  flex: 1;
+  padding-top: 8px;
+}
+
+.about-text p {
+  font-size: 17px;
+  line-height: 1.75;
+  margin-bottom: 20px;
+  color: var(--black);
+}
+
+.about-links {
+  margin-top: 32px;
+  display: flex;
+  gap: 24px;
+}
+
+.about-links a {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--black);
+  padding-bottom: 2px;
+  transition: opacity 0.2s;
+}
+
+.about-links a:hover {
+  opacity: 0.5;
+}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+
+.contact-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 120px 80px 80px;
+}
+
+.contact-content {
+  text-align: center;
+}
+
+.contact-intro {
+  font-size: 32px;
+  margin-bottom: 32px;
+}
+
+.contact-links {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+}
+
+.contact-links a {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--black);
+  padding-bottom: 2px;
+  transition: opacity 0.2s;
+}
+
+.contact-links a:hover {
+  opacity: 0.5;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  header {
+    padding: 20px 20px 0 60px;
+  }
+
+  .music-main {
+    padding: 100px 60px 60px;
+  }
+
+  .album-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 24px;
+  }
+
+  .about-content {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .about-photo-placeholder {
+    width: 100%;
+    aspect-ratio: 4/3;
+  }
+}
+
+@media (max-width: 480px) {
+  .album-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 16px;
+  }
+
+  .music-main {
+    padding: 100px 40px 60px;
+  }
+}

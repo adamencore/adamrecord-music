@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Album — Adam Record</title>
+  <link rel="stylesheet" href="https://use.typekit.net/hpg2amt.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="album-page">
+
+  <!-- SIDEBAR SOCIAL -->
+  <div class="sidebar">
+    <a href="https://www.instagram.com/adamrecordmusic" target="_blank" class="sidebar-link">Instagram</a>
+    <div class="sidebar-line"></div>
+  </div>
+
+  <!-- HEADER / NAV -->
+  <header>
+    <div class="logo">
+      <a href="index.html">
+        <span class="logo-name">ADAM RECORD</span>
+        <span class="logo-sub">Composer</span>
+      </a>
+    </div>
+    <nav>
+      <a href="about.html">About</a>
+      <a href="music.html" class="active">Music</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="album-main">
+    <div class="album-player-wrap">
+      <div class="back-link"><a href="music.html">← All Albums</a></div>
+      <div class="album-player-title" id="albumTitle">Album</div>
+      <div class="album-player-meta" id="albumMeta"></div>
+      <div class="spotify-embed" id="spotifyEmbed">
+        <!-- Spotify embed loads here -->
+        <p class="embed-placeholder">Spotify embed coming soon.</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Album data — add Spotify embed URLs here when ready
+    const albums = {
+      // Thorn and Thistle: silver-grey grass stems on muted grey
+      'thorn-and-thistle':    { title: 'Thorn and Thistle',      meta: '2025 · Single',  spotify: '', gradient: 'linear-gradient(160deg, #b8b8b8 0%, #d4d4d0 40%, #f0efec 100%)' },
+      // Command: stark black blurred shape on pale grey-white
+      'command':              { title: 'Command',                 meta: '2025 · Single',  spotify: 'https://open.spotify.com/embed/album/6OrHsrZQyHYIHPo0zFDegg?utm_source=generator', gradient: 'linear-gradient(160deg, #e8e8e8 0%, #c0c0c0 40%, #1a1a1a 100%)' },
+      // The New Virtue: (no image provided — keeping placeholder)
+      'the-new-virtue':       { title: 'The New Virtue',         meta: '2024 · Single',  spotify: 'https://open.spotify.com/embed/album/6fPSi6BDgQbPmt1sYK4Jcp?utm_source=generator', gradient: 'linear-gradient(160deg, #b0c4d4 0%, #e8c8a0 50%, #607080 100%)' },
+      // Echo Chamber: blurred car window, dusky blue-mauve-pink sky
+      'echo-chamber':         { title: 'Echo Chamber',           meta: '2024 · EP',      spotify: 'https://open.spotify.com/embed/album/06Q34luXZiioNZg8vr1sL1?utm_source=generator', gradient: 'linear-gradient(160deg, #6a7a8c 0%, #c4a090 50%, #3a2830 100%)' },
+      // The Boy and the Bear: cream/parchment, minimal ink sketch
+      'the-boy-and-the-bear': { title: 'The Boy and the Bear',   meta: '2024 · Album',   spotify: 'https://open.spotify.com/embed/album/4iIGAUDKCDnOH9Z1Zf2g4s?utm_source=generator', gradient: 'linear-gradient(160deg, #eee8d8 0%, #d8d0c0 50%, #f5f2ea 100%)' },
+      // Jesus Savior Pilot Me: dark teal-green with gold sparks
+      'jesus-savior-pilot-me':{ title: 'Jesus, Savior, Pilot Me',meta: '2024 · Single',  spotify: 'https://open.spotify.com/embed/album/05WMugX8dSXKDq8aSvMPZD?utm_source=generator', gradient: 'linear-gradient(160deg, #1e2e28 0%, #2c3e30 50%, #8a7040 100%)' },
+      // Trifect: warm golden-yellow Polaroid haze, child in orange
+      'trifect':              { title: 'Trifect',                 meta: '2024 · Single',  spotify: 'https://open.spotify.com/embed/album/2mmW3T6Vz3wyQMxp5le6GE?utm_source=generator', gradient: 'linear-gradient(160deg, #e8d88a 0%, #c8a870 50%, #a07850 100%)' },
+      // Dust Storm: very dark, shadowy black with dim light shapes
+      'dust-storm':           { title: 'Dust Storm',              meta: '2024 · EP',      spotify: 'https://open.spotify.com/embed/album/37tDDz3eR8IHRqwaSj3XGT?utm_source=generator', gradient: 'linear-gradient(160deg, #181818 0%, #302820 50%, #484038 100%)' },
+      // Stille 2023: circular snowy mountain, white/grey/taupe
+      'stille-2023':          { title: 'Stille (2023 Mix)',       meta: '2023 · Album',   spotify: 'https://open.spotify.com/embed/album/7z86ylotOF3DUoeU9yL2QX?utm_source=generator', gradient: 'linear-gradient(160deg, #e0dcd6 0%, #c0bcb4 50%, #f0eeea 100%)' },
+      // Cemetary: (no image provided — dark and moody)
+      'cemetary':             { title: 'Cemetary',                meta: '2023 · Single',  spotify: 'https://open.spotify.com/embed/album/5L5C5OrjqriZ3yLHiKvpen?utm_source=generator', gradient: 'linear-gradient(160deg, #282828 0%, #404040 50%, #181818 100%)' },
+      // Words: dark charcoal with warm amber light leak at top
+      'words':                { title: 'Words',                   meta: '2022 · Single',  spotify: 'https://open.spotify.com/embed/album/5WuXVEonw7Hnu1yS25y6vb?utm_source=generator', gradient: 'linear-gradient(160deg, #8a6030 0%, #3c3428 50%, #282420 100%)' },
+      // Monsoon: vivid pink/magenta/blue static streaks on cream
+      'monsoon':              { title: 'Monsoon',                 meta: '2022 · Single',  spotify: 'https://open.spotify.com/embed/album/6QUKCLvO8Tj25jw2KVxn7a?utm_source=generator', gradient: 'linear-gradient(160deg, #e8c0d0 0%, #c070a0 35%, #8090c8 70%, #f0ece8 100%)' },
+      // Suzanne: linen/cream texture with dark green type
+      'suzanne':              { title: 'Suzanne',                 meta: '2022 · Single',  spotify: 'https://open.spotify.com/embed/album/6u9rYxRTtE22G3kCQkbp9A?utm_source=generator', gradient: 'linear-gradient(160deg, #d8d4c8 0%, #b0b8a0 50%, #e8e4d8 100%)' },
+      // Eden: very dark charcoal, single cream rose glowing
+      'eden':                 { title: 'Eden',                    meta: '2021 · Single',  spotify: 'https://open.spotify.com/embed/album/1q8dhiHvJ90G4A2TLfNoZY?utm_source=generator', gradient: 'linear-gradient(160deg, #1e1c18 0%, #2e2a22 50%, #c0a060 100%)' },
+      // Bleak Midwinter: warm Bruegel painting, cream/ochre/rust/icy blue
+      'bleak-midwinter':      { title: 'Bleak Midwinter',        meta: '2020 · EP',      spotify: 'https://open.spotify.com/embed/album/7aKTlpu7S1YmjZCTrq4kBP?utm_source=generator', gradient: 'linear-gradient(160deg, #c8b890 0%, #a09070 35%, #8898a8 70%, #d8ceb0 100%)' },
+      // Even on Calm Waters: washed-out photo blue sky, asphalt road, tan
+      'even-on-calm-waters':  { title: 'Even on Calm Waters',    meta: '2020 · Album',   spotify: 'https://open.spotify.com/embed/album/2PcrFCRgAQMK3rGC65bcZQ?utm_source=generator', gradient: 'linear-gradient(160deg, #8ab0c8 0%, #506878 50%, #c0b090 100%)' },
+      // Rifle: misty forest, creamy off-white fading from green-grey cliffs
+      'rifle':                { title: 'Rifle',                   meta: '2018 · Album',   spotify: 'https://open.spotify.com/embed/album/2Vv2VELNCBgAiM0uo9bQhO?utm_source=generator', gradient: 'linear-gradient(160deg, #e8e4d8 0%, #a8b4a8 40%, #6a7868 100%)' },
+      // Stille: snowy mountain scene, pale silver-grey-white
+      'stille':               { title: 'Stille',                  meta: '2016 · Album',   spotify: 'https://open.spotify.com/embed/album/0QcujYSf9R0KUhtNiD98vl?utm_source=generator', gradient: 'linear-gradient(160deg, #dcdad4 0%, #b8b6b0 50%, #f0eee8 100%)' },
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    const album = albums[id];
+
+    if (album) {
+      document.title = album.title + ' — Adam Record';
+      document.getElementById('albumTitle').textContent = album.title;
+      document.getElementById('albumMeta').textContent = album.meta;
+      document.body.style.background = album.gradient;
+
+      if (album.spotify) {
+        document.getElementById('spotifyEmbed').innerHTML =
+          `<iframe style="border-radius:12px" src="${album.spotify}" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
+      }
+    }
+  </script>
+
+</body>
+</html>
