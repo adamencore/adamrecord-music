@@ -83,7 +83,7 @@ header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 28px 48px 0 40px;
+  padding: 28px 48px 0 120px;
   background: transparent;
 }
 
@@ -94,7 +94,7 @@ header {
 }
 
 .logo-name {
-  font-size: 46px;
+  font-size: 28px;
   font-weight: 400;
   letter-spacing: 0.01em;
   line-height: 1;
@@ -439,6 +439,69 @@ nav a.active::after {
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+
+
+/* ============================================================
+   ALBUM PAGE
+   ============================================================ */
+
+.album-page {
+  min-height: 100vh;
+}
+
+.album-main {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 120px 80px 80px 120px;
+}
+
+.album-player-wrap {
+  width: 100%;
+  max-width: 660px;
+}
+
+.back-link {
+  margin-bottom: 32px;
+}
+
+.back-link a {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.6);
+  transition: color 0.2s;
+}
+
+.back-link a:hover {
+  color: #fff;
+}
+
+.album-player-title {
+  font-size: clamp(28px, 5vw, 52px);
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.album-player-meta {
+  font-size: 13px;
+  font-style: italic;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 40px;
+}
+
+.spotify-embed iframe {
+  border-radius: 12px;
+}
+
+.embed-placeholder {
+  font-size: 14px;
+  color: rgba(255,255,255,0.4);
+  font-style: italic;
+  padding: 40px 0;
+}
 
 @media (max-width: 768px) {
   .sidebar {
