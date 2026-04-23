@@ -117,6 +117,7 @@ nav {
 nav a {
   font-size: 13px;
   letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--grey);
   transition: color 0.2s;
   position: relative;
@@ -451,7 +452,7 @@ nav a.active::after {
 
 .album-main {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: flex-start;
   min-height: 100vh;
   padding: 120px 80px 80px 120px;
